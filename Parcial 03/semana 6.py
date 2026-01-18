@@ -1,27 +1,28 @@
+# Ejemplo POO en Python
 
-class Animal:
-    def __init__(self, nombre):
-        self.nombre = nombre
-        self.__edad = 0      # Encapsulación
+class Vehiculo:
+    def __init__(self, marca):
+        self.marca = marca
+        self.__encendido = False   # Encapsulación
 
-    def get_edad(self):
-        return self.__edad
+    def encender(self):
+        self.__encendido = True
 
-    def sonido(self):       # Método para polimorfismo
-        return "Hace un sonido"
+    def tipo(self):               # Método para polimorfismo
+        return "Vehículo"
 
 
-class Perro(Animal):        # Herencia
-    def sonido(self):       # Polimorfismo (sobrescritura)
-        return "Ladra"
+class Moto(Vehiculo):             # Herencia
+    def tipo(self):               # Polimorfismo
+        return "Moto"
 
 
 # Programa principal
 if __name__ == "__main__":
-    animal = Animal("Animal genérico")
-    perro = Perro("Firulais")
+    v1 = Vehiculo("Genérico")
+    v2 = Moto("Yamaha")
 
-    animales = [animal, perro]
+    lista = [v1, v2]
 
-    for a in animales:
-        print(f"{a.nombre}: {a.sonido()}")
+    for v in lista:
+        print(f"{v.marca}: {v.tipo()}")
